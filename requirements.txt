@@ -1,0 +1,10 @@
+chromadb
+chroma-hnswlib
+openpyxl
+streamlit
+openai
+pandas
+streamlit
+python-dotenv
+pydantic-settings
+langchain_openai
