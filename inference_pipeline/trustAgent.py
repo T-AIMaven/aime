@@ -1,5 +1,5 @@
 from openai import OpenAI
-from config.config import settings
+from inference_pipeline.config import settings
 import pandas as pd
 import json
 

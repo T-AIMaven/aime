@@ -1,7 +1,11 @@
 from openai import OpenAI
-from config.config import settings
+from inference_pipeline.config import settings
 import pandas as pd
 import json
+
+# Ensure the API key is loaded correctly
+if not settings.OPENAI_API_KEY:
+    raise ValueError("OPENAI_API_KEY is not set. Please check your environment or config.")
 
 client = OpenAI(api_key=settings.OPENAI_API_KEY)
 
@@ -125,8 +129,8 @@ class SalesAgent:
         :param top_k: Number of top results to return.
         :return: A dictionary containing the structured results with normalized similarity scores.
         """
-        dataset_path = r"D:\data\task\aime\data_collection_pipeline\dataset.xlsx"
-        
+        dataset_path = settings.DATASET_FILE
+        print(f"Dataset path: {dataset_path}")
         # Use the passed query parameter instead of hardcoded values
         similar_rows = self.find_similar_rows(dataset_path=dataset_path, query=query)
         top_k_rows = similar_rows.head(top_k)
