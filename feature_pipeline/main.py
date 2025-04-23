@@ -13,6 +13,7 @@ def map_query_keys(query, key_mapping):
     :return: Dictionary with mapped keys.
     """
     
+    
     mapped_query = {}
     for original_key, mapped_key in key_mapping.items():
         if original_key in query:
